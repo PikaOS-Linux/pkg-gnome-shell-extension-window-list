@@ -1,4 +1,4 @@
-Source: gnome-shell-extension-arcmenu
+Source: gnome-shell-extension-launch-new-instance
 Section: gnome
 Priority: optional
 Maintainer: Marco Trevisan <marco@ubuntu.com>
@@ -11,13 +11,13 @@ Build-Depends: debhelper (>= 10),
                node-strip-ansi <!nocheck>,
                libgettextpo-dev,
                gettext,
-               sassc,
+               sassc
 Standards-Version: 4.1.1
 Vcs-Git: https://gitlab.com/arcmenu/ArcMenu
 Vcs-Browser: https://gitlab.com/arcmenu/ArcMenu
 Homepage: https://gitlab.com/arcmenu/ArcMenu
 
-Package: gnome-shell-extension-arcmenu
+Package: gnome-shell-extension-launch-new-instance
 Architecture: all
 Depends: gnome-shell,
          ${misc:Depends},
