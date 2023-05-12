@@ -2,5 +2,9 @@
 export DH_VERBOSE = 1
 export DEB_BUILD_OPTIONS=nocheck
 
+override_dh_translations:
+	make ./po/arcmenu.pot
+	dh_translations
+
 %:
 	dh $@ --with translations
