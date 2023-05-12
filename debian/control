@@ -1,4 +1,4 @@
-Source: gnome-shell-extension-launch-new-instance
+Source: gnome-shell-extension-user-theme
 Section: gnome
 Priority: optional
 Maintainer: Marco Trevisan <marco@ubuntu.com>
@@ -13,15 +13,10 @@ Build-Depends: debhelper (>= 10),
                gettext,
                sassc
 Standards-Version: 4.1.1
-Vcs-Git: https://gitlab.com/arcmenu/ArcMenu
-Vcs-Browser: https://gitlab.com/arcmenu/ArcMenu
-Homepage: https://gitlab.com/arcmenu/ArcMenu
 
-Package: gnome-shell-extension-launch-new-instance
+Package: gnome-shell-extension-user-theme
 Architecture: all
 Depends: gnome-shell,
          ${misc:Depends},
          ${shlibs:Depends},
-         gnome-menus,
-         gir1.2-gmenu-3.0
-Description: Always launch a new application instance for GNOME Shell
+Description: Support for custom themes in GNOME Shell
