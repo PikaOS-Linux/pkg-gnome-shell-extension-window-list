@@ -20,5 +20,5 @@ dpkg-buildpackage --no-sign
 
 # Move the debs to output
 cd ../
-mkdir -p ./output
-mv ./*.deb ./output/
+mkdir -pv ./output
+mv -v ./*.deb ./output/
