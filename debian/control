@@ -1,4 +1,4 @@
-Source: gnome-shell-extension-user-theme
+Source: gnome-shell-extension-window-list
 Section: gnome
 Priority: optional
 Maintainer: Marco Trevisan <marco@ubuntu.com>
@@ -14,9 +14,9 @@ Build-Depends: debhelper (>= 10),
                sassc
 Standards-Version: 4.1.1
 
-Package: gnome-shell-extension-user-theme
+Package: gnome-shell-extension-window-list
 Architecture: all
 Depends: gnome-shell,
          ${misc:Depends},
          ${shlibs:Depends},
-Description: Support for custom themes in GNOME Shell
+Description: This GNOME Shell extension displays a window list at the bottom of the screen.
