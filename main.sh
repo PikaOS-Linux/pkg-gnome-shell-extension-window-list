@@ -6,10 +6,9 @@ add-apt-repository https://ppa.pika-os.com
 add-apt-repository ppa:pikaos/pika
 add-apt-repository ppa:kubuntu-ppa/backports
 # Clone Upstream
-tar -xf ./gnome-shell-extension-ubuntu-dock_79.orig.tar.xz -C ./
-rm -rfv ./gnome-shell-extension-ubuntu-dock-79ubuntu2/debian
-cp -rvf ./debian ./gnome-shell-extension-ubuntu-dock-79ubuntu2/
-cd ./gnome-shell-extension-ubuntu-dock-79ubuntu2
+git clone -b v44.1 https://gitlab.com/arcmenu/ArcMenu ./gnome-shell-extension-arcmenu
+cp -rvf ./debian ./gnome-shell-extension-arcmenu/
+cd ./gnome-shell-extension-arc-menu
 
 # Get build deps
 ln -fs /usr/share/zoneinfo/America/New_York /etc/localtime
@@ -17,7 +16,7 @@ DEBIAN_FRONTEND=noninteractive apt-get install -y tzdata
 apt-get build-dep ./ -y
 
 # Build package
-dpkg-buildpackage
+dpkg-buildpackage --no-sign
 
 # Move the debs to output
 cd ../
