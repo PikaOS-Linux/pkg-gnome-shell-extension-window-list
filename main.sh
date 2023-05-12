@@ -8,7 +8,7 @@ add-apt-repository ppa:kubuntu-ppa/backports
 # Clone Upstream
 git clone -b v44.1 https://gitlab.com/arcmenu/ArcMenu ./gnome-shell-extension-arcmenu
 cp -rvf ./debian ./gnome-shell-extension-arcmenu/
-cd ./gnome-shell-extension-arc-menu
+cd ./gnome-shell-extension-arcmenu
 
 # Get build deps
 ln -fs /usr/share/zoneinfo/America/New_York /etc/localtime
@@ -22,15 +22,3 @@ dpkg-buildpackage --no-sign
 cd ../
 mkdir -pv ./output
 mv -v ./*.deb ./output/
-
-# Sign the packages
-dpkg-sig --sign builder ./output/*.deb
-
-# Pull down existing ppa repo db files etc
-rsync -azP --exclude '*.deb' ferreo@direct.pika-os.com:/srv/www/pikappa/ ./output/repo
-
-# Add the new package to the repo
-reprepro -V --basedir ./output/repo/ includedeb lunar ./output/*.deb
-
-# Push the updated ppa repo to the server
-rsync -azP ./output/repo/ ferreo@direct.pika-os.com:/srv/www/pikappa/
