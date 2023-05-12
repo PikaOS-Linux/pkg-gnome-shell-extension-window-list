@@ -24,4 +24,4 @@ Depends: gnome-shell,
          ${shlibs:Depends},
          gnome-menus,
          gir1.2-gmenu-3.0
-Description: ArcMenu is an application menu for GNOME Shell, designed to provide a more familiar user experience and workflow. This extension has many features, including various menu layout styles, GNOME search, quick access to system shortcuts, and much more!
+Description: Always launch a new application instance for GNOME Shell
