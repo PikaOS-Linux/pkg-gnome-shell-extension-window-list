@@ -1,12 +1,8 @@
+# send debs to server
+rsync -azP --include './' --include '*.deb' --exclude '*' ./output/ ferreo@direct.pika-os.com:/srv/www/incoming/
 
-# Sign the packages
-dpkg-sig --sign builder ./output/*.deb
+# add debs to repo
+ssh ferreo@direct.pika-os.com 'aptly repo add -force-replace -remove-files pika-main /srv/www/incoming/'
 
-# Pull down existing ppa repo db files etc
-rsync -azP --exclude '*.deb' ferreo@direct.pika-os.com:/srv/www/pikappa/ ./output/repo
-
-# Add the new package to the repo
-reprepro -V -C main --basedir ./output/repo/ includedeb lunar ./output/*.deb
-
-# Push the updated ppa repo to the server
-rsync -azP ./output/repo/ ferreo@direct.pika-os.com:/srv/www/pikappa/
+# publish the repo
+ssh ferreo@direct.pika-os.com 'aptly publish update -batch -skip-contents -force-overwrite lunar filesystem:pikarepo:'
